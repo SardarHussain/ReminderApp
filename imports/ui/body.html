@@ -1,0 +1,32 @@
+ <body>
+  <div class="container">
+    <header>
+    <h1>My Reminders List</h1>
+    <div class="text-right">
+      {{ >loginButtons }}
+    </div>
+    {{#if currentUser}}
+      {{> addReminder}}
+      {{else}}
+      <h5> Please login to view and create your reminders</h5>
+    {{/if}}
+    </header>
+
+{{#if currentUser}}
+<div class="reminder-container">
+  <div class="list-container">
+      <ul>
+          {{#each reminderdata}}
+            {{> reminder}}
+          {{/each}}  
+        </ul>      
+  </div>
+  <div class="cal-container">
+    {{> calendarPage}}
+  </div>
+</div>
+{{/if}}
+</div>
+  
+</body>   
+

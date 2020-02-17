@@ -1,0 +1,174 @@
+<template name="addReminder"> 
+  {{#if currentUser}}
+  <form class="new-reminder"> 
+    <div class="form-row">
+      <div class="col">
+        <input type="text" name="title" id="title" class="form-control" placeholder="Enter title of the Reminder:" 
+        required />
+      </div>
+      <div class="col">
+        <input type="text" name="desc" class="form-control" placeholder=" Enter description of the reminder..."
+          required/>
+      </div>
+    </div>
+      <div class="form-row">
+        <div class="col">
+            <input type="date" name="date" class="form-control" required />    
+        </div>
+        <div class="col">
+            <input type="time" name="time" required />
+            <button type="submit" class="btn btn-outline-primary">
+                Create Reminder
+              </button>
+        </div>
+    </div>
+  </form>
+  {{else}}
+  <p> login before creating a new reminder</p>
+  {{/if}}
+</template>
+
+<template name="reminder">
+    <li class="{{#if checked}}checked{{/if}}">
+      <button class="delete">&times;</button>
+      <input type="checkbox" checked="{{ checked }}" class="toggle-checked" /> 
+      <label for="checkbok">Edit</label>
+
+      <p class="text"><b> {{ title }}: </b> {{ desc }}, {{ date }}, {{ time }}</p>
+    </li>
+
+    <li class="{{#if checked}}checked{{/if}}">
+
+
+      {{#if checked}}
+
+      <div>
+        <form class="edit-reminder">
+          <div class="form-group">
+            <label for="Title">Title</label>
+            <input type="text" name="title" class="form-control" value={{title}} 
+            required />
+          </div>
+          <div class="form-group">
+            <label for="Desc">Description</label>
+            <input type="text" name="desc" class="form-control" value= {{desc}} required/>
+          </div>
+          <div class="form-group">
+            <label for="date">Date</label>
+            <input type="date" name="date" class="form-control" value ={{date}} required />
+          </div>
+          <div class="form-group">
+            <label for="time">Time</label>
+            <input type="time" name="time" class="form-control" value={{time}} required />
+          </div>
+          <button type="submit" class="btn btn-danger mb-3">
+            Update
+          </button>
+        </form>
+      </div>
+      {{/if}} 
+    </li>
+    </template>  
+
+
+  <!-- <template name="addReminder-old"> 
+    {{#if currentUser}}
+    <div>
+      <form class="new-reminder">
+        <div class="form-group">
+          <label for="Title">Title</label>
+          <input type="text" name="title" class="form-control" placeholder="Enter title of the Reminder:" 
+          required />
+        </div>
+        <div class="form-group">
+          <label for="Desc">Description</label>
+          <input type="text" name="desc" class="form-control" placeholder=" Enter description of the reminder..."
+            required/>
+        </div>
+        <div class="form-group">
+          <label for="date">Date</label>
+          <input type="date" name="date" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label for="time">Time</label>
+          <input type="time" name="time" class="form-control" required />
+        </div>
+        <button type="submit" class="btn btn-danger mb-3">
+          Create Reminder
+        </button>
+      </form>
+    </div>
+    {{else}}
+    <p> login before creating a new reminder</p>
+    {{/if}}
+  </template>
+ -->
+  
+<!-- 
+<template name="reminder-old">
+{{#if currentUser}}
+
+<li class="{{#if checked}}checked{{/if}}">
+  <button class="delete">&times;</button>
+  <input type="checkbox" checked="{{ checked }}" class="toggle-checked" />
+  <h6 class="text">
+    {{ title }} 
+  </h6>
+  <p class="text">{{ desc }}</p>
+  <p class="text">
+     Date :  <span class="span-text">{{ date }} Time: {{ time }}</span>
+  </p>
+</li>
+{{/if}}
+</template>   -->
+
+<!-- <li class="{{#if checked}}checked{{/if}}">
+      <button class="delete">&times;</button>
+      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+      <span class="text">{{title}}</span>
+      <span class="text">{{desc}}</span>
+      <span class="date">{{date}}</span>
+      <span class="time">{{time}}</span>
+
+
+      <span class="text">{{createdAt}}</span>
+</li>  -->
+ <!-- 
+    <li class="{{#if checked}}checked{{/if}}">
+    <button class="delete">&times;</button>
+  <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
+
+  <span class="text">{{title}}</span>
+  <span class="text">{{desc}}</span> 
+  <span class="text">{{date}}</span>
+  <span class="text">{{time}}</span>
+  <span class="text">{{currentUser.username}}</span>
+ <span class="text">{{createdAt}}</span>
+</li>  -->
+  
+<!--       
+
+<template name="tableData">
+  <main class="header">
+  <table class ="header">
+    <tr>
+    <th> Title </th>
+    <th> Description</th>
+    <th> Date</th>
+    <th> Time</th>
+
+
+    </tr>
+    {{#each reminders}}
+    <tr>
+      <td>{{title}}</td>
+      <td>{{desc}}</td>
+      <td>{{date}}</td>
+      <td>{{time}}</td>
+
+    </tr>
+     {{/each}}
+  </table>
+  </main>
+</template>
+ -->
