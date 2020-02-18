@@ -48,7 +48,7 @@ createdAt: {
 
 username: {
   type: String,
-  label: "Author",
+  label: "User Name",
   autoValue: function () {
     return this.username
   },
@@ -56,7 +56,8 @@ username: {
 
 userid: {
   type: String,
-  label: "Author",
+  label: "User ID",
+  optional: true,
   autoValue: function () {
     return this.userId
   },
@@ -85,6 +86,9 @@ Meteor.methods({
   'reminderdata.insert'(title, desc, date, time) {
     check(title, String);
     check(desc, String);
+    check(date, String);
+    check(time, String);
+
  
     // Make sure the user is logged in before inserting a reminder
     if (! Meteor.userId()) {
@@ -94,7 +98,7 @@ Meteor.methods({
     ReminderData.insert({
       title, desc,date, time,
       createdAt: new Date(),
-      owner: Meteor.userId(),
+      userid: Meteor.userId(),
       username: Meteor.user().username,
     });
   },

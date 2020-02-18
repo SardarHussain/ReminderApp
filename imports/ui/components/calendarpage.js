@@ -43,8 +43,8 @@ Template.calendarPage.onCreated(() => {
       // Configure the information displayed for a reminder as an event
       eventRender (session, element)  {
         element.find('.fc-content').html(
-            `<p class="title">${session.title}</p>
-            <p class="time">${session.time}</p>
+            `<p class="title"> <small> ${session.title}</p>
+            <p class="time">${session.time}</small> </p>
             `,
         );
        

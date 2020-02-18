@@ -42,7 +42,7 @@ zimme:active-route
 #iron:router
 
 #stolinski:stylus-multi
-meteortoys:allthings
+#meteortoys:allthings
 
 less
 momentjs:moment
